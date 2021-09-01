@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Cadastro de Eventos</title>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style/styleCss.css" />
+</head>
+<body>
+	
+		<th:block th:include="mensagemValidacao"></th:block>
+	<div class="container formularioEdit">
+
+		<form class="container" method="post" th:action="@{/cadastrarEvento}">
+			Nome: <input type="text" value="" name="nome" th:value="${evento.nome}"/>
+			<div class="row">
+				<div class="input-field col s6">
+					Local: <input type="text" value="" name="local" th:value="${evento.local}" />
+				</div>
+				<div class="input-field col s3">
+					Data: <input type="date" value="" name="data" th:value="${evento.data}"/>
+				</div>
+				<div class="input-field col s3">
+					Horario: <input type="text" value="" name="horario" th:value="${evento.horario}" />
+				</div>
+			</div>
+
+			<button name="codigo" th:value="${evento.codigo}" class="waves-effect waves-light btn" type="submit">Salvar</button>
+		</form>
+	</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
